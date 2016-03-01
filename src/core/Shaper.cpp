@@ -20,3 +20,11 @@ ShapesList Shaper::run() {
     return out;
 }
 
+ShapesList Shaper::generateOut(std::vector<Shape *> shapesAllowed) {
+    return ShapesList();
+}
+
+ShapesList Shaper::match(Shape formeATester) {
+    for()
+    return ShapesList();
+}

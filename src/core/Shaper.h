@@ -2,12 +2,15 @@
 #define SHAPER_H
 
 #include "../shared/ShapesList.h"
+#include "../shared/Shape.h"
 
 class Shaper
 {
 protected:
     ShapesList in;
     ShapesList out;
+    ShapesList generateOut(std::vector<Shape*> shapesAllowed);
+    ShapesList match(Shape formeATester);
 public:
     Shaper() { }
 

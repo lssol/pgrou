@@ -1,9 +1,11 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include "Coordonnees.h"
+
 enum natureShape{
-    CARRE;
-    TRIANGLE;
+    LIGNE,
+    ARC
 };
 
 class Shape
@@ -14,7 +16,6 @@ private:
 public:
     Shape();
     ~Shape();
-
 };
 
 #endif // SHAPE_H

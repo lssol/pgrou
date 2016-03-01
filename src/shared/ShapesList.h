@@ -2,6 +2,8 @@
 #define SHAPELIST_H
 
 #include <vector>
+#include "Shape.h"
+#include "Contrainte.h"
 
 class ShapesList
 {

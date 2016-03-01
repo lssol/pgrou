@@ -2,6 +2,7 @@
 #define COORDONNEES_H
 
 #include <vector>
+#include "Point.h"
 
 class Coordonnees
 {
