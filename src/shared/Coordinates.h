@@ -4,13 +4,14 @@
 #include <vector>
 #include "Point.h"
 
-class Coordonnees
+class Coordinates
 {
 private:
     std::vector<Point> sommets;
 public:
-    Coordonnees();
-    ~Coordonnees();
+    Coordinates();
+    Coordinates(Point a, Point b);
+    ~Coordinates();
 
 };
 

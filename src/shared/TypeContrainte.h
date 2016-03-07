@@ -1,15 +1,15 @@
 #ifndef TYPECONTRAINTE_H
 #define TYPECONTRAINTE_H
 
-enum Types{
-    ANGLEDROIT;
-    JOINTURE;
+enum TypesContrainte{
+    ANGLEDROIT,
+    JOINTURE
 };
 
 class TypeContrainte
 {
 private:
-    Types type;
+    TypesContrainte type;
     float value;
 public:
     TypeContrainte();

@@ -1,7 +1,7 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
-#include "Coordonnees.h"
+#include "Coordinates.h"
 
 enum natureShape{
     LIGNE,
@@ -10,12 +10,18 @@ enum natureShape{
 
 class Shape
 {
-private:
+protected:
     natureShape nature;
-    Coordonnees coordonnees;
+    Coordinates coordinates;
+
+
 public:
     Shape();
+    Shape(natureShape nature, Coordinates c);
+    Shape(natureShape nature, Point a, Point b);
     ~Shape();
+
+    int id;
 };
 
 #endif // SHAPE_H

@@ -2,6 +2,7 @@
 #include "../shared/ShapesList.h"
 #include "Shaper12.h"
 #include "Shaper23.h"
+#include <vector>
 
 Shaper::Shaper(ShapesList in)
 {
@@ -20,11 +21,13 @@ ShapesList Shaper::run() {
     return out;
 }
 
-ShapesList Shaper::generateOut(std::vector<Shape *> shapesAllowed) {
-    return ShapesList();
+ShapesList Shaper::generateOut(std::vector<Shape> shapesAllowed) {
+    for (std::vector<Shape>::const_iterator iter = shapesAllowed.cbegin(); iter != shapesAllowed.end(); iter++) {
+        out.add(in.search(*iter));
+    }
+    return out;
 }
 
-ShapesList Shaper::match(Shape formeATester) {
-    for()
+ShapesList Shaper::funciton(ShapesList k) {
     return ShapesList();
 }
