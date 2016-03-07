@@ -7,9 +7,13 @@
 
 
 #include <bits/stl_bvector.h>
+#include "../shared/Shape.h"
+#include "../shared/Contrainte.h"
 
 class ShapesForAnalysis {
-    std::vector<shapes
+public:
+    std::vector<Shape> shapes;
+    std::vector<Contrainte> contraintes;
 };
 
 

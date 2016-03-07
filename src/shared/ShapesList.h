@@ -5,6 +5,7 @@
 #include <bits/basic_string.h>
 #include "Shape.h"
 #include "Contrainte.h"
+#include "../core/ShapesForAnalysis.h"
 #include <string>
 
 class ShapesList {
@@ -12,9 +13,10 @@ protected:
     std::vector<Shape> shapes;
     std::vector<Contrainte> contraintes;
 
-    ShapesList buildGroups();
+    std::vector<ShapesForAnalysis> buildGroups();
 
     std::vector<Contrainte> getTypeContrainte(TypesContrainte nomContraintes);
+    std::vector<Contrainte> getContraintesConcerningShapes(std::vector<Shape> shapesConcerned);
 
 public:
     ShapesList();
@@ -35,6 +37,10 @@ public:
     void setShapes(const std::vector<Shape> &shapes);
 
     void setContraintes(const std::vector<Contrainte> &contraintes);
+
+    Shape getShapeByID(int id);
+
+    std::vector<Contrainte> getContraintesConcerningShapes(const std::vector<Shape> &shapesConcerned);
 };
 
 
