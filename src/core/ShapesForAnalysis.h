@@ -6,8 +6,10 @@
 #define PGROU_SHAPESFORANALYSIS_H
 
 
+#include <bits/stl_bvector.h>
+
 class ShapesForAnalysis {
-    
+    std::vector<shapes
 };
 
 
