@@ -18,7 +18,7 @@ ShapesList::~ShapesList()
 ShapesList ShapesList::search(const Shape &shape) {
     ShapesList result;
 
-    Shape currentShape;
+    std::vector<ShapesForAnalysis> toAnalyse = buildGroups();
 
 
 
@@ -53,7 +53,7 @@ void ShapesList::setContraintes(const std::vector<Contrainte> &contraintes) {
  */
 std::vector<ShapesForAnalysis> ShapesList::buildGroups() {
     std::vector<Contrainte> contraintes = getTypeContrainte(JOINTURE);
-    Graph g(contraintes.size());
+    Graph g(shapes.size()); // nombre
 
     for(auto const& c : contraintes){
         g.addEdge(c.getShapes()[0].id, c.getShapes()[1].id);
