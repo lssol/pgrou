@@ -16,10 +16,10 @@ void Contrainte::setShapes(const std::vector<Shape> &shapes) {
     Contrainte::shapes = shapes;
 }
 
-std::vector<Shape> & Contrainte::getShapes()const {
+std::vector<Shape> Contrainte::getShapes() const{
     return shapes;
 }
 
-TypeContrainte &Contrainte::getTypeContrainte() {
+const TypeContrainte & Contrainte::getTypeContrainte()const {
     return typeContrainte;
 }

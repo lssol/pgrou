@@ -3,13 +3,15 @@
 
 #include "../shared/ShapesList.h"
 #include "Shaper.h"
+#include "catalogue/Catalogue.h"
 
 class Shaper12 : public Shaper
 {
+private:
+    Catalogue catalogue;
 public:
     Shaper12(ShapesList list);
-    ~Shaper12();
-
+    ShapesList generateOut(Catalogue shapesAllowed);
     ShapesList run();
 };
 

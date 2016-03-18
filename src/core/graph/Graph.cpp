@@ -6,6 +6,8 @@
 // C++ program to print DFS traversal for a given given graph
 #include<iostream>
 #include <list>
+#include <vector>
+
 using namespace std;
 
 Graph::Graph(int V)
@@ -24,7 +26,7 @@ std::vector<std::vector<int>> Graph::DFS() {
     delete[] state;
 
     for (std::list<std::list<int>>::const_iterator i = closedShapes.begin(), end = closedShapes.end(); i != end; ++i) {
-        result.push_back(new std::vector<int>);
+        result.push_back(*new std::vector<int>);
         for (std::list<int>::const_iterator j = (*i).begin(), end = (*i).end(); j != end; ++j) {
             result.back().push_back(*j);
         }
