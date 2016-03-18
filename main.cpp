@@ -1,8 +1,4 @@
-#include <stdio.h>
-
-#include "src/apis/ObjetMyScript.h"
 #include "src/apis/MyScriptTOShapeList.h"
-#include "src/shared/ShapesList.h"
 #include "src/core/Shaper.h"
 /*
 int main(ObjetMyScript donnees)
@@ -46,6 +42,27 @@ int main()
     in.addShape(l2);
     in.addShape(l3);
 
+    //Les contraintes
+    std::vector<Contrainte> contraintes;
+    contraintes.push_back(*new Contrainte(JOINTURE, l0, l1) );
+    contraintes.push_back(*new Contrainte(ANGLE, l0, l1) );
+    contraintes.push_back(*new Contrainte(ANGLEDROIT, l0, l1) );
+
+    contraintes.push_back(*new Contrainte(JOINTURE, l1, l2) );
+    contraintes.push_back(*new Contrainte(ANGLE, l1, l2) );
+    contraintes.push_back(*new Contrainte(ANGLEDROIT, l1, l2) );
+
+    contraintes.push_back(*new Contrainte(JOINTURE, l2, l3) );
+    contraintes.push_back(*new Contrainte(ANGLE, l2, l3) );
+    contraintes.push_back(*new Contrainte(ANGLEDROIT, l2, l3) );
+
+    contraintes.push_back(*new Contrainte(JOINTURE, l0, l3) );
+    contraintes.push_back(*new Contrainte(ANGLE, l0, l3) );
+    contraintes.push_back(*new Contrainte(ANGLEDROIT, l0, l3) );
+
+    in.setContraintes(contraintes);
+
+    std::cout << "L'encre en entrée : " << std::endl << in;
 
     Shaper shaper(in);
     ShapesList out = shaper.run();

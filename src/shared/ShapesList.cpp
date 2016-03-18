@@ -1,7 +1,7 @@
 #include <map>
 #include "ShapesList.h"
 #include "../core/graph/Graph.h"
-
+#include <iostream>
 
 ShapesList::ShapesList()
 {
@@ -53,11 +53,11 @@ void ShapesList::add(ShapesList& list) {
     contraintes.insert(contraintes.end(), list.getContraintes().begin(), list.getContraintes().end());
 }
 
-std::vector<Shape> & ShapesList::getShapes() {
+std::vector<Shape> ShapesList::getShapes()const {
     return shapes;
 }
 
-std::vector<Contrainte> & ShapesList::getContraintes() {
+std::vector<Contrainte> ShapesList::getContraintes()const {
     return contraintes;
 }
 
@@ -162,6 +162,14 @@ std::vector<Contrainte> ShapesList::getContraintesConcerningShapes(const std::ve
     return result;
 }
 
-friend ostream& operator <<(ostream&, const fraction& F){
-
+std::ostream& operator<<(std::ostream&, const ShapesList& s){
+    std::cout << std::endl << "*******Shapes*******" << std::endl;
+    for(const Shape& shape : s.getShapes()){
+        std::cout << "--> ";
+        std::cout << shape;
+    }
+    std::cout << std::endl << "*******Contraintes*******"<< std::endl;
+    for(const Contrainte& contrainte : s.getContraintes()){
+        std::cout << contrainte;
+    }
 }

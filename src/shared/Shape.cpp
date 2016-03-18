@@ -18,3 +18,7 @@ const NatureShape &Shape::getNature() const {
 }
 
 
+std::ostream& operator<<(std::ostream&, const Shape& shape){
+    std::cout << "---- Type de Shape : " << shapesNames[shape.getNature()];
+    std::cout << ", Id : " << shape.id << std::endl;
+}
