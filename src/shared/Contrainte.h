@@ -2,21 +2,28 @@
 #define CONTRAINTE_H
 
 #include <vector>
-#include "TypeContrainte.h"
 #include "Shape.h"
+
+
+enum TypeContrainte{
+    ANGLE,
+    ANGLEDROIT,
+    JOINTURE
+};
 
 class Contrainte
 {
 private:
     TypeContrainte typeContrainte;
+    float value;
     std::vector<Shape> shapes;
 public:
 
-    TypeContrainte & getTypeContrainte();
+    const TypeContrainte & getTypeContrainte()const;
 
     void setTypeContrainte(const TypeContrainte &typeContrainte);
 
-    std::vector<Shape> & getShapes()const;
+    std::vector<Shape> getShapes()const;
 
     void setShapes(const std::vector<Shape> &shapes);
 

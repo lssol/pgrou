@@ -3,23 +3,25 @@
 
 #include "Coordinates.h"
 
-enum natureShape{
-    LIGNE,
-    ARC
+enum NatureShape{
+    LINE,
+    ARC,
+    RECTANGLE,
+    TRIANGLE
 };
 
 class Shape
 {
 protected:
-    natureShape nature;
+    NatureShape nature;
     Coordinates coordinates;
 
 
 public:
-    Shape();
-    Shape(natureShape nature, Coordinates c);
-    Shape(natureShape nature, Point a, Point b);
-    ~Shape();
+    Shape(NatureShape nature, Coordinates c, int p_id);
+    Shape(NatureShape nature, Point a, Point b, int p_id);
+
+    const NatureShape & getNature() const;
 
     int id;
 };

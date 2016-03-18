@@ -6,6 +6,7 @@
 #define CLOSEDWALKS_GRAPH_H
 
 #include <list>
+#include <vector>
 
 
 enum VertexState {

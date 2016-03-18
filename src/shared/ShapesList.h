@@ -2,10 +2,10 @@
 #define SHAPELIST_H
 
 #include <vector>
-#include <bits/basic_string.h>
+#include <string>
 #include "Shape.h"
 #include "Contrainte.h"
-#include "../core/ShapesForAnalysis.h"
+#include "../core/catalogue/EntreeCatalogue.h"
 #include <string>
 
 class ShapesList {
@@ -13,34 +13,36 @@ protected:
     std::vector<Shape> shapes;
     std::vector<Contrainte> contraintes;
 
-    std::vector<ShapesForAnalysis> buildGroups();
+    std::vector<ShapesList> buildGroups();
 
-    std::vector<Contrainte> getTypeContrainte(TypesContrainte nomContraintes);
-    std::vector<Contrainte> getContraintesConcerningShapes(std::vector<Shape> shapesConcerned);
+    std::vector<Contrainte> getTypeContrainte(TypeContrainte nomContraintes)const;
+    std::vector<Contrainte> getContraintesConcerningShapes(const std::vector<Shape> &shapesConcerned);
+    int getNumberTypeContrainte(TypeContrainte nomContraintes)const;
 
 public:
     ShapesList();
 
     ~ShapesList();
 
-    ShapesList search(const Shape &shape);
+    ShapesList* search(const EntreeCatalogue &entreeCatalogue);
 
     /*
- * Concatener deux ShapesList
- */
-    void add(ShapesList list);
+     * Concatener deux ShapesList
+     */
+    void add( ShapesList &list);
+    void addShape(const Shape &shape);
+    std::vector<Shape> & getShapes();
 
-    std::vector<Shape> &getShapes();
-
-    std::vector<Contrainte> &getContraintes();
+    std::vector<Contrainte> & getContraintes();
 
     void setShapes(const std::vector<Shape> &shapes);
 
     void setContraintes(const std::vector<Contrainte> &contraintes);
 
-    Shape getShapeByID(int id);
+    Shape* getShapeByID(int id);
 
-    std::vector<Contrainte> getContraintesConcerningShapes(const std::vector<Shape> &shapesConcerned);
+
+    bool isContain(const std::vector<Shape> &shapes, const std::vector<Shape> &shapesConcerned);
 };
 
 
