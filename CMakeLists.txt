@@ -17,13 +17,27 @@ ${Qt5Gui_INCLUDE_DIRS}
 ${Qt5Widgets_INCLUDE_DIRS}
 ${Qt5Svg_INCLUDE_DIRS}
 )
-
+#pour avoir les fichier de MyScript (IHM seulement) dans visual studio
 file(GLOB_RECURSE GEOM_QT_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src *.h)
 file(GLOB_RECURSE GEOM_QT_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src *.cpp)
-file(GLOB_RECURSE GEOM_QT_core ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core *.h)
-file(GLOB_RECURSE GEOM_QT_coreh ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core *.cpp)
-file(GLOB_RECURSE GEOM_QT_shared ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/shared *.h)
-file(GLOB_RECURSE GEOM_QT_sharedh ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/shared *.cpp)
+#pour inclure les fichier de prgou  dans visual studio
+#file(GLOB_RECURSE GEOM_QT_main ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master *.cpp) #pour le main
+
+#file(GLOB_RECURSE GEOM_QT_coreh ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core *.h)  #les .h de core
+#file(GLOB_RECURSE GEOM_QT_core ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core *.cpp)  #les .cpp de core
+#file(GLOB_RECURSE GEOM_QT_core_catalogueh ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core/catalogue *.h)  #les .h de core/catalogue
+#file(GLOB_RECURSE GEOM_QT_core_catalogue ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core/catalogue *.cpp)  #les .cpp de core/catalogue
+#file(GLOB_RECURSE GEOM_QT_core_datah ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core/data *.h)   #core/data
+#file(GLOB_RECURSE GEOM_QT_core_data ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core/data *.cpp)  
+#file(GLOB_RECURSE GEOM_QT_core_graphh ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core/graph *.h)   #core/graph
+#file(GLOB_RECURSE GEOM_QT_core_graph ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/core/graph *.cpp)  
+
+#file(GLOB_RECURSE GEOM_QT_sharedh ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/shared *.h)     #shared
+#file(GLOB_RECURSE GEOM_QT_shared ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/shared *.cpp)
+
+#file(GLOB_RECURSE GEOM_QT_apish ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/apis *.h)    #apis
+#file(GLOB_RECURSE GEOM_QT_apis ${CMAKE_CURRENT_SOURCE_DIR}/pgrou-master/src/apis *.cpp)
+
 #file(GLOB_RECURSE GEOM_QT_api ${CMAKE_CURRENT_SOURCE_DIR}//pgrou-master/src/apis *.cpp)
 set(GEOM_QT ${GEOM_QT_HDRS} ${GEOM_QT_SRCS} ${GEOM_QT_core} ${GEOM_QT_coreh} ${GEOM_QT_shared}  ${GEOM_QT_sharedh} )
 
