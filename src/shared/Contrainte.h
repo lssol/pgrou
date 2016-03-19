@@ -2,14 +2,16 @@
 #define CONTRAINTE_H
 
 #include <vector>
+#include <iostream>
 #include "Shape.h"
 
 
 enum TypeContrainte{
-    ANGLE,
+    ANGLE = 0,
     ANGLEDROIT,
     JOINTURE
 };
+static const char* contraintesNames[] = {"Angle", "Angle Droit", "Jointure"};
 
 class Contrainte
 {
@@ -24,10 +26,10 @@ public:
     void setTypeContrainte(const TypeContrainte &typeContrainte);
 
     std::vector<Shape> getShapes()const;
-
+    friend std::ostream& operator<<(std::ostream&, const Contrainte& c);
     void setShapes(const std::vector<Shape> &shapes);
 
-    Contrainte();
+    Contrainte(TypeContrainte type, Shape s1, Shape s2);
     ~Contrainte();
 
 };
