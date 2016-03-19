@@ -16,5 +16,5 @@ Catalogue::Catalogue() {
 
     EntreeCatalogue triangle(TRIANGLE, 3);
 
-    catalogue.push_back(rectangle);
+    catalogue.push_back(triangle);
 }

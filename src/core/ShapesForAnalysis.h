@@ -6,7 +6,7 @@
 #define PGROU_SHAPESFORANALYSIS_H
 
 
-#include <bits/stl_bvector.h>
+//#include <bits/stl_bvector.h>
 #include "../shared/Shape.h"
 #include "../shared/Contrainte.h"
 
