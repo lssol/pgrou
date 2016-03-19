@@ -13,8 +13,11 @@ ShapesList Shaper12::run() {
 }
 
 ShapesList Shaper12::generateOut(Catalogue shapesAllowed) {
-    for (std::vector<EntreeCatalogue>::const_iterator iter = shapesAllowed.getCatalogue().cbegin(); iter != shapesAllowed.getCatalogue().end(); iter++) {
-        out.add(*in.search(*iter));
+    ShapesList* result;
+    for (std::vector<EntreeCatalogue>::const_iterator iter = shapesAllowed.getCatalogue().begin(); iter != shapesAllowed.getCatalogue().end(); iter++) {
+        result = in.search(*iter);
+        if(result != NULL)
+            out.add(*result);
     }
     return out;
 }

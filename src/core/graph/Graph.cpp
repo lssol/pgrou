@@ -25,15 +25,20 @@ std::vector<std::vector<int>> Graph::DFS() {
     runDFS(0, state);
     delete[] state;
 
-    for (std::list<std::list<int>>::const_iterator i = closedShapes.begin(), end = closedShapes.end(); i != end; ++i) {
-        result.push_back(*new std::vector<int>);
-        for (std::list<int>::const_iterator j = (*i).begin(), end = (*i).end(); j != end; ++j) {
+    //cout << "BBBBBBBBBBBBBBBBBBBBBBbAa" << endl;
+    for (std::list<std::list<int>>::const_iterator i = closedShapes.begin(); i != closedShapes.end();  ++i) {
+        //cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAa" << endl;
+        result.push_back(std::vector<int>());
+        for (std::list<int>::const_iterator j = (*i).begin(); j != (*i).end(); ++j) {
             result.back().push_back(*j);
+            //cout << "IN GRAPH : " << *j << endl ;
         }
     }
+
+    return result;
 }
 void Graph::runDFS(int u, VertexState state[]) {
-    cout << u;
+    //cout << "DFSSSSSSSSSSSSSSSSSSSSSSssssss" << u;
     path.push_back(u);
     state[u] = Gray;
     for (int v = 0; v < vertexCount; v++) {
@@ -64,7 +69,7 @@ bool Graph::isEdge(int a, int b) {
 }
 
 void Graph::cutToCycle(int v) {
-    cout << "cut : " << v << endl;
+    //cout << "cut : " << v << endl;
     list<int> cycle;
     bool recording = false;
     for (std::list<int>::const_iterator iterator = path.begin(), end = path.end(); iterator != end; ++iterator) {

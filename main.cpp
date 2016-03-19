@@ -37,10 +37,20 @@ int main()
     Point l31(0,1);
     Shape l3(LINE, l30, l31, 3);
 
+    Point l40(0,1);
+    Point l41(0.5,2);
+    Shape l4(LINE, l40, l41, 4);
+
+    Point l50(1,1);
+    Point l51(0.5,2);
+    Shape l5(LINE, l50, l51, 5);
+
     in.addShape(l0);
     in.addShape(l1);
     in.addShape(l2);
     in.addShape(l3);
+    in.addShape(l4);
+    in.addShape(l5);
 
     //Les contraintes
     std::vector<Contrainte> contraintes;
@@ -60,12 +70,34 @@ int main()
     contraintes.push_back(*new Contrainte(ANGLE, l0, l3) );
     contraintes.push_back(*new Contrainte(ANGLEDROIT, l0, l3) );
 
+    //1-4
+    contraintes.push_back(*new Contrainte(JOINTURE, l1, l4) );
+    contraintes.push_back(*new Contrainte(ANGLE, l1, l4) );
+
+    //2-4
+    contraintes.push_back(*new Contrainte(JOINTURE, l2, l4) );
+    contraintes.push_back(*new Contrainte(ANGLE, l2, l4) );
+
+    //4-5
+    contraintes.push_back(*new Contrainte(JOINTURE, l5, l4) );
+    contraintes.push_back(*new Contrainte(ANGLE, l5, l4) );
+
+    //5-2
+    contraintes.push_back(*new Contrainte(JOINTURE, l5, l2) );
+    contraintes.push_back(*new Contrainte(ANGLE, l5, l2) );
+
+    //5-3
+    contraintes.push_back(*new Contrainte(JOINTURE, l5, l3) );
+    contraintes.push_back(*new Contrainte(ANGLE, l5, l3) );
+
     in.setContraintes(contraintes);
 
     std::cout << "L'encre en entrée : " << std::endl << in;
 
     Shaper shaper(in);
     ShapesList out = shaper.run();
+
+    std::cout << "L'encre en sortie : " << std::endl << out;
 
 
     // ICI on enverra out à l'application
