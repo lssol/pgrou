@@ -11,7 +11,7 @@
 #include "TypeContrainte"
 #include "GeometryModel.h"
 
-class Shaper23 {
+class Shaper23::Shaper{
 
 private:
     Shaper23();
